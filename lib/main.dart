@@ -1,6 +1,6 @@
 import 'package:ecommerce_bloc/core/theme/theme.dart';
 import 'package:ecommerce_bloc/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:ecommerce_bloc/features/auth/presentation/pages/login_page.dart';
+import 'package:ecommerce_bloc/features/auth/presentation/pages/signin_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ecommerce_bloc/dependecy_injection.dart' as di;
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: AppTheme.darkThemeMode,
-      home: const LoginPage(),
+      home: const SignInPage(),
     );
   }
 }

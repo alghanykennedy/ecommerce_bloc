@@ -30,13 +30,15 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         'password': password,
       });
 
-      if (response.statusCode != 201) {
-        throw const ServerException('Something went wrong');
-      }
-
       return response.data;
     } catch (e) {
-      throw ServerException(e.toString());
+      if (e is DioException) {
+        log('DioError: ${e.message}');
+        throw ServerException(e.response!.data['message']);
+      } else {
+        log('Unexpected error: ${e.toString()}');
+        throw const ServerException('An unexpected error occurred');
+      }
     }
   }
 
